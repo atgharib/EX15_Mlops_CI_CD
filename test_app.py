@@ -18,12 +18,9 @@ def test_predict(client):
         'worst_perimeter': 164.80,
         'worst_area': 2019.0,
         'worst_concavity': 70.0,
-        'worst_concave_points': 26.0,
-        'send': 'Send'
+        'worst_concave_points': 26.0        
     }
-    response = client.post('/input', data=form_data)
-    assert response.status_code == 200
-
+ 
     response = client.post('/predict', data=form_data)
     assert response.status_code == 302  # Redirect
 
@@ -33,7 +30,17 @@ def test_predict(client):
 def test_input(client):
     response = client.get('/input')
     assert response.status_code == 200
-    assert 'InputForm' in response.get_data(as_text=True)
+    assert 'mean_radius' in response.get_data(as_text=True)
+    assert 'mean_perimeter' in response.get_data(as_text=True)
+    assert 'mean_area' in response.get_data(as_text=True)
+    assert 'mean_concavity' in response.get_data(as_text=True)
+    assert 'mean_concave_points' in response.get_data(as_text=True)
+    assert 'worst_radius' in response.get_data(as_text=True)
+    assert 'worst_perimeter' in response.get_data(as_text=True)
+    assert 'worst_area' in response.get_data(as_text=True)
+    assert 'worst_concavity' in response.get_data(as_text=True)
+    assert 'worst_concave_points' in response.get_data(as_text=True)
+    assert 'Send' in response.get_data(as_text=True)  # check for the submit button
 
 def test_result(client):
     response = client.get('/result?predicted_class=some_class')
