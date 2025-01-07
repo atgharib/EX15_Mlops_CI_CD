@@ -36,7 +36,7 @@ jobs:
               run: |
                   ls -l
                   pwd
-                  cd EX15_MLOPS_CI_CD
+                  cd EX15_Mlops_CI_CD
                   ls -l
                   pwd
                   python model/model.py
