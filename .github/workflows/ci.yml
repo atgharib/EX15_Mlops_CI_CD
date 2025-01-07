@@ -34,7 +34,7 @@ jobs:
             
             - name: Train the model (Online Training)
               run: |
-                  cd EX15_Mlops_CI_CD
+                  cd EX15_MLOPS_CI_CD
                   python model/model.py
 
             - name: Run Tests
