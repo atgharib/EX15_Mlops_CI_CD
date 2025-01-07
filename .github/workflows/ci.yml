@@ -36,9 +36,6 @@ jobs:
               run: |
                   ls -l
                   pwd
-                  cd EX15_Mlops_CI_CD
-                  ls -l
-                  pwd
                   python model/model.py
 
             - name: Run Tests
