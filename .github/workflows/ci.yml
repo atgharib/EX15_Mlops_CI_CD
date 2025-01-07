@@ -34,7 +34,11 @@ jobs:
             
             - name: Train the model (Online Training)
               run: |
+                  ls -l
+                  pwd
                   cd EX15_MLOPS_CI_CD
+                  ls -l
+                  pwd
                   python model/model.py
 
             - name: Run Tests
